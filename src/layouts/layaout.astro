@@ -1,0 +1,71 @@
+---
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+
+const { title } = Astro.props;
+const currentUrl = new URL(Astro.request.url);
+const ogImageUrl = "https://hallowear-spooky-ai-hackathon.vercel.app/hallowear_open-graph.webp";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="An app where you can see how you'd look in your desired costume by uploading an image and providing a prompt. You can also write a prompt to change the background, enhancing the visual experience." />
+		<meta name="viewport" content="width=device-width" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content="An app where you can see how you'd look in your desired costume by uploading an image and providing a prompt. You can also write a prompt to change the background, enhancing the visual experience." />
+		<meta property="og:url" content={currentUrl} />
+		<meta property="og:image" content={ogImageUrl} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<div id="screamContainer">
+		</div>
+		<Header/>
+		<slot/>
+		<Footer/>
+	</body>
+</html>
+
+<style is:global>
+	@font-face {
+		font-family: 'HalloweenSpooky';
+		src: url('/fonts/HalloweenSpooky.woff2') format('woff2');
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'SourceSans3';
+		src: url('/fonts/SourceSans3-Variable.woff2') format('woff2');
+		font-weight: 100 900;
+		font-style: normal;
+		font-display: swap;
+	}
+	
+	:root {
+		--accent: #FF6500;
+		--neutral-light: #FFFCF2;
+		--neutral-medium:#CCC5B9;
+		--neutral-dark: #4E4C47;
+		--background: #252422;
+	}
+
+	*{
+		box-sizing: border-box;
+	}
+
+	html {
+		font-family: 'SourceSans3', system-ui, sans-serif;
+		background: var(--background);
+		color: var(--neutral-medium);
+		scroll-behavior: smooth;
+	}
+</style>
+
+<style>
+</style>
