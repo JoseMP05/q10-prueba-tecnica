@@ -1,0 +1,127 @@
+---
+import logo from "@assets/img/logo-azul.webp"
+import Menu from "./icons/Menu.astro"
+---
+<header>
+   <div>
+    <img src={logo.src} height="60" alt="Q10 Programa de partners">
+   </div>
+   
+   <nav class="large-menu">
+    <a href="#">Planes</a>
+    <a href="#">Empresa</a>
+    <a href="#"> Recursos</a>
+    <!-- Lo mejor es es dectectar el activo de forma dinámica, pero por cuestiones de tiempo
+    lo hago de forma estática -->
+    <a href="#" class="active">Partners</a>
+    <a href="#">Contacto</a>
+   </nav>
+
+   <!-- <button>
+    Prueba gratuita
+   </button> -->
+
+   <button class="menu-button--open">
+     <Menu/>
+   </button>
+   
+  <nav class="mobile-menu">
+    <div class="navigation">
+      <a href="#">Planes</a>
+      <a href="#">Empresa</a>
+      <a href="#"> Recursos</a>
+      <a href="#" class="active">Partners</a>
+      <a href="#">Contacto</a>
+    </div>
+
+    <button class="menu-button--close">close</button>
+  </nav>
+</header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const openMenu = document.querySelector('.menu-button--open');
+    const closeMenu = document.querySelector('.menu-button--close');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    document.addEventListener('click', (event) => {
+      console.log(event.target)
+      if (event.target.closest(".menu-button--open"))
+        mobileMenu.classList.toggle('open');
+      else if (event.target.closest(".menu-button--close"))
+        mobileMenu.classList.toggle('open');
+    });
+  });
+</script>
+
+<style>
+  header{
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 16px 16px 4px;
+    width: 100%;
+  }
+  
+  nav.mobile-menu{
+    position: absolute;
+    top: 0;
+    right: -100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 24px;
+    width: 100%;
+    height: 100vh;
+    padding: 16px;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    transition: transform 1s;
+  }
+
+  nav.open{
+    transform: translateX(-100%);
+  }
+
+  .navigation{
+    display: flex;
+    flex-direction: column;
+  }
+
+  nav.large-menu{
+    display: none;
+  }
+
+  a{
+    padding: 8px 0px;
+  }
+
+  a.active{
+    font-weight: bold;
+    border-bottom: 1px solid var(--accent);
+    background: -webkit-linear-gradient(270deg, #282B2E, #666666);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* button{
+    display: none;
+  } */
+
+  @media screen and (min-width: 768px) {
+    header{
+
+    }
+
+    nav.mobile-menu,
+    .menu-button--open{
+      display: none;
+    }
+
+    nav.large-menu{
+      display: flex;
+      gap: 20px;
+    }
+  }
+</style>
