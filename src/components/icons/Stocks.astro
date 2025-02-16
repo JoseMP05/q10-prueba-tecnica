@@ -1,5 +1,4 @@
 ---
-const { size = 24 } = Astro.props;
+const { viewbox, size = 24} = Astro.props;
 ---
-
-<svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} fill="none"><path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.667" d="m28 8-9.333 9.333-4-4L4 24"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.667" d="M28 13.333V8h-5.334"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox=`0 0 ${viewbox} ${viewbox}` fill="none"><path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.667" d="m28 8-9.333 9.333-4-4L4 24"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.667" d="M28 13.333V8h-5.334"/></svg>
