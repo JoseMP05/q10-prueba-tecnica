@@ -1,0 +1,163 @@
+---
+import type { GetStaticPaths } from "astro";
+import Deal from "@components/icons/Deal.astro";
+import Stocks from "@components/icons/Stocks.astro";
+import World from "@components/icons/World.astro";
+
+import Button from "@components/Button.astro";
+
+import usersImage from "@assets/img/users.webp"
+---
+<section class="hero">
+  <div class="hero__content">
+    <div>
+      <h1>Conviértete en Partner</h1>
+      <h2>Y aumenta tus ingresos vendiendo el software educativo líder en Latinoamérica.</h2>
+    </div>
+    
+    <ul>
+      <li>
+        <Stocks size="24" viewbox="30"/>
+        Crece Financieramente.
+      </li>
+      <li>
+        <Deal size="24" viewbox="28"/>
+        Conecta con más clientes.
+      </li>
+      <li>
+        <World size="24" viewbox="28"/>
+        Genera un gran impacto positivo en la región.
+      </li>
+    </ul>
+    
+    <div class="cto">
+      <Button>¡Asociate ahora!</Button>
+      <Button style="outline">Mas info</Button>
+    </div>
+  </div>
+  <div class="hero__visual">
+    <img src={usersImage.src} alt="Usuarios usando el software de Q10">
+  </div>
+</section>
+
+<style>
+  section{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    min-height: calc(100vh - var(--header-offset));
+    padding: 0 16px 16px;
+  }
+
+  h1{
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  h2{
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: normal;
+    margin-bottom: 0px;
+  }
+
+  ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    padding-left: 0;
+    list-style: none;
+    text-align: center;
+  }
+
+  li{
+    display: flex;
+    align-items: start;
+    gap: 12px;
+  }
+
+  li svg{
+    flex-shrink: 0;
+  }
+
+  li:first-child svg{
+    color: var(--accent);
+  }
+
+  .hero__content{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 500px;
+    margin-inline: auto;
+  }
+
+  .cto{
+    display: flex;
+    width: 100%;
+    gap: 24px;
+  }
+
+  .cto button{
+    width: 100%;
+  }
+
+  .hero__visual{
+    max-width: 500px;
+    margin-inline: auto;
+  }
+
+  @media screen and (min-width: 768px) {
+    section{
+      flex-direction: row;
+      align-items: center;
+      gap: 64px;
+      max-width: 1400px;
+      margin-inline: auto;
+    }
+
+    .hero__content{
+      max-width: 620px;
+    }
+
+    .hero__visual{
+      max-width: none;
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    section{
+      flex-direction: row;
+      align-items: center;
+      gap: 64px;
+      max-width: 1400px;
+      margin-inline: auto;
+    }
+
+    .hero__content{
+      max-width: 620px;
+    }
+
+    .hero__visual{
+      max-width: none;
+    }
+
+    h1{
+      font-size: 4rem;
+      text-align: start;
+    }
+
+    h2{
+      font-size: 2rem;
+      line-height: 130%;
+      text-align: start;
+    }
+
+    ul{
+      flex-direction: column;
+      flex-wrap: nowrap;
+      font-size: 1.25rem;
+    }
+  }
+</style>

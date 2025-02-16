@@ -7,7 +7,7 @@ import Menu from "./icons/Menu.astro"
     <img src={logo.src} height="60" alt="Q10 Programa de partners">
    </div>
    
-   <nav class="large-menu">
+   <nav class="menu menu--large">
     <a href="#">Planes</a>
     <a href="#">Empresa</a>
     <a href="#"> Recursos</a>
@@ -25,7 +25,7 @@ import Menu from "./icons/Menu.astro"
      <Menu/>
    </button>
    
-  <nav class="mobile-menu">
+  <nav class="menu menu--mobile">
     <div class="navigation">
       <a href="#">Planes</a>
       <a href="#">Empresa</a>
@@ -42,7 +42,7 @@ import Menu from "./icons/Menu.astro"
   document.addEventListener('DOMContentLoaded', () => {
     const openMenu = document.querySelector('.menu-button--open');
     const closeMenu = document.querySelector('.menu-button--close');
-    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileMenu = document.querySelector('.menu--mobile');
 
     document.addEventListener('click', (event) => {
       console.log(event.target)
@@ -57,14 +57,16 @@ import Menu from "./icons/Menu.astro"
 <style>
   header{
     position: fixed;
+    top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 16px 16px 16px 4px;
     width: 100%;
+    backdrop-filter: blur(10px);
   }
   
-  nav.mobile-menu{
+  nav.menu--mobile{
     position: absolute;
     top: 0;
     right: -100%;
@@ -89,7 +91,7 @@ import Menu from "./icons/Menu.astro"
     flex-direction: column;
   }
 
-  nav.large-menu{
+  nav.menu--large{
     display: none;
   }
 
@@ -114,14 +116,20 @@ import Menu from "./icons/Menu.astro"
 
     }
 
-    nav.mobile-menu,
+    nav.menu--mobile,
     .menu-button--open{
       display: none;
     }
 
-    nav.large-menu{
+    nav.menu--large{
       display: flex;
       gap: 20px;
     }
+  }
+</style>
+
+<style is:global>
+  :root{
+    --header-offset: 92px;
   }
 </style>
