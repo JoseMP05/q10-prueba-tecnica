@@ -1,5 +1,4 @@
 ---
-import type { GetStaticPaths } from "astro";
 import Deal from "@components/icons/Deal.astro";
 import Stocks from "@components/icons/Stocks.astro";
 import World from "@components/icons/World.astro";
@@ -113,7 +112,7 @@ import usersImage from "@assets/img/users.webp"
       flex-direction: row;
       align-items: center;
       gap: 64px;
-      max-width: 1400px;
+      max-width: var(--max-width-sections);
       margin-inline: auto;
     }
 
@@ -127,22 +126,6 @@ import usersImage from "@assets/img/users.webp"
   }
 
   @media screen and (min-width: 992px) {
-    section{
-      flex-direction: row;
-      align-items: center;
-      gap: 64px;
-      max-width: 1400px;
-      margin-inline: auto;
-    }
-
-    .hero__content{
-      max-width: 620px;
-    }
-
-    .hero__visual{
-      max-width: none;
-    }
-
     h1{
       font-size: 4rem;
       text-align: start;
