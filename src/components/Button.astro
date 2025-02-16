@@ -1,0 +1,88 @@
+---
+const { style = "fill", className, ...rest } = Astro.props;
+---
+<button class=`${className}` data-style={style} {...rest}>
+  <slot/>
+</button>
+
+<style>
+  button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding-block: 12px;
+    padding-inline: 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+    font-size: 1rem;
+    transition: 
+    transform 0.3s ease-in-out, 
+    border-color 0.3s ease-in-out, 
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+  }
+  
+  [data-style="fill"]{
+    font-weight: bold;
+    border: 3px solid #ffffff4d;
+    background-color: var(--accent);
+    color: var(--alternative);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  [data-style="outline"]{
+    background-color: transparent;
+    color: var(--alternative);
+    border: 2px solid var(--alternative);
+  }
+
+  button:hover {
+    transform: scale(1.05);
+    border-color: #fff9;
+  }
+
+  [data-style="outline"]:hover {
+    transform: scale(1.05);
+    border-color: #fff9;
+    background-color: var(--alternative);
+    color: white;
+  }
+
+  button:hover::before {
+    animation: shine 1.5s ease-out infinite;
+  }
+
+  button::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    background-image: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0) 70%
+    );
+    top: 0;
+    left: -100px;
+    opacity: 0.6;
+  }
+
+  @keyframes shine {
+    0% {
+      left: -100px;
+    }
+
+    60% {
+      left: 100%;
+    }
+
+    to {
+      left: 100%;
+    }
+  }
+</style>
