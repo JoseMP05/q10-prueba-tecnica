@@ -28,17 +28,17 @@ const ogImageUrl = "";
 
 <style is:global>
 	@font-face {
-		font-family: 'HalloweenSpooky';
-		src: url('/fonts/HalloweenSpooky.woff2') format('woff2');
+		font-family: 'Geist';
+		src: url('/fonts/Geist-Regular.woff2') format('woff2');
 		font-weight: normal;
 		font-style: normal;
 		font-display: swap;
 	}
 
 	@font-face {
-		font-family: 'SourceSans3';
-		src: url('/fonts/SourceSans3-Variable.woff2') format('woff2');
-		font-weight: 100 900;
+		font-family: 'Geist';
+		src: url('/fonts/Geist-Bold.woff2') format('woff2');
+		font-weight: bold;
 		font-style: normal;
 		font-display: swap;
 	}
@@ -46,6 +46,7 @@ const ogImageUrl = "";
 	:root {
 		--accent: #FF8500;
 		--color: #1A1A1A;
+		--font-family: 'Geist', system-ui, sans-serif;
 	}
 
 	*{
@@ -53,7 +54,7 @@ const ogImageUrl = "";
 	}
 
 	html {
-		font-family: 'SourceSans3', system-ui, sans-serif;
+		font-family: var(--font-family);
 		background: white;
 		color: var(--color);
 		scroll-behavior: smooth;
@@ -61,11 +62,16 @@ const ogImageUrl = "";
 
 	body{
 		margin: 0;
+		padding-top: 92px;
 	}
 
 	a{
 		color: var(--color);
 		text-decoration: none;
+	}
+
+	img{
+		max-width: 100%;
 	}
 </style>
 
