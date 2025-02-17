@@ -3,20 +3,16 @@ import Header from "@components/Header.astro"
 
 const { title } = Astro.props;
 const currentUrl = new URL(Astro.request.url);
-const ogImageUrl = "";
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="An app where you can see how you'd look in your desired costume by uploading an image and providing a prompt. You can also write a prompt to change the background, enhancing the visual experience." />
 		<meta name="viewport" content="width=device-width" />
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content={title} />
-		<meta property="og:description" content="An app where you can see how you'd look in your desired costume by uploading an image and providing a prompt. You can also write a prompt to change the background, enhancing the visual experience." />
 		<meta property="og:url" content={currentUrl} />
-		<meta property="og:image" content={ogImageUrl} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>{title}</title>
 	</head>
