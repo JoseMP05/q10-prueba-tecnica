@@ -1,0 +1,99 @@
+---
+import TestimonialCard from "@components/TestimonialCard.astro"
+
+const testimonials = [
+  {
+    quote: "Q10 para Censa es una plataforma que al ser manejada de manera integral nos da la posibilidad de mejorar nuestros servicios educativos.",
+    author: "Diego Rodríguez Gamboa - Administrador.",
+    company: "Universidad de las Ciencias y el Arte de Costa Rica."
+  },
+  {
+    quote: "Q10 para Censa es una plataforma que al ser manejada de manera integral nos da la posibilidad de mejorar nuestros servicios educativos.",
+    author: "Albert Corredor - Presidente, Censa.",
+    company: "Universidad de las Ciencias y el Arte de Costa Rica."
+  },
+  {
+    quote: "Q10 ha sido una herramienta tecnológica que nos ha permitido dinamizar eficientemente todos nuestros procesos académicos, minimizar el tiempo en la realización de actividades rutinarias y complejas e incursionar en el sector educativo que cada día requiere tecnología de primer nivel.",
+    author: "Mariem Fernandez - Coordinadora Administrativa y Financiera.",
+    company: "Corporación Educativa Colombiana - ECO."
+  },
+  {
+    quote: "Q10 es nuestro aliado tecnológico en la gestión de los procesos académicos de la institución.",
+    author: "Israel Escobar - Director de Programa de Ingeniería de Sistemas, PCA.",
+    company: "PCA"
+  },
+  {
+    quote: "Q10 es una solución para las organizaciones educativas con innovación permanente, tecnología de vanguardia, calidad y excelencia en el servicio.",
+    author: "Jaime Pérez - Gerente y Fundador, IME.",
+    company: "IME"
+  },
+  {
+    quote: "“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean justo dolor, malesuada sit amet odio rutrum, auctor sodales felis. Integer feugiat nisi sit amet lorem blandit faucibus.",
+    author: "Juan Aristizábal",
+    company: "Instituto Creativo de la Imaginación"
+  }
+]
+---
+<section class="testimonials">
+  <div class="testimonials__container">
+    <h2>Descubre lo que opinan sobre nosotros y anímate a ganar.</h2>
+    <div class="testomonials__wrapper">
+      {
+        testimonials.map( testimony => {
+          const {quote, author, company} = testimony
+          return <TestimonialCard {quote} {author} {company}/>
+        })
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  section{
+    display: flex;
+    justify-content: center;
+    margin-inline: 16px;
+    margin-bottom: 48px;
+  }
+
+  .testimonials__container{
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .testomonials__wrapper{
+    columns: 1;
+  }
+
+  h2{
+    text-align: center;
+  }
+
+  article{
+    margin-bottom: 24px;
+  }
+
+  @media screen and (min-width: 768px) {
+    section{
+      margin-inline: 0;
+      margin-bottom: 48px;
+    }
+
+    .testimonials__container{
+      max-width: calc(var(--max-width-sections) - 48px);
+      width: 100%;
+      margin-inline: 24px;
+    }
+
+    .testomonials__wrapper{
+      columns: 3;
+      column-gap: 24px;
+    }
+
+    h2{
+      font-size: 2rem;
+      max-width: 700px;
+      margin-inline: auto;
+    }
+  }
+</style>
