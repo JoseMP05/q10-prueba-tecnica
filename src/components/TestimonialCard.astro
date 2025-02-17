@@ -1,0 +1,37 @@
+---
+const { quote, author, company, ...rest }  = Astro.props;
+---
+<article {...rest} >
+  <p>
+    <span class="quote">"</span>
+    {quote}
+    <span class="quote">"</span>
+  </p>
+  <footer>
+    <span>{author}</span>
+    <strong>{company}</strong>
+  </footer>
+</article>
+
+<style>
+  article{
+    display: inline-flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    background-color: #F5F5F5;
+    border: 1px solid rgba(40, 43, 46, 0.1) /*alternative to 10% of transparency*/;
+    border-radius: 8px;
+  }
+
+  .quote{
+    font-weight: bold;
+    color: var(--accent);
+  }
+
+  @media screen and (min-width: 768px) {
+    article{
+      padding: 24px;
+    }
+  }
+</style>
