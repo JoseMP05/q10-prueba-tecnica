@@ -21,7 +21,7 @@ import Menu from "./icons/Menu.astro"
     Prueba gratuita
    </button> -->
 
-   <button class="menu-button--open">
+   <button class="menu-button--open" aria-label="Abrir Menú">
      <Menu/>
    </button>
    
@@ -34,7 +34,7 @@ import Menu from "./icons/Menu.astro"
       <a href="#">Contacto</a>
     </div>
 
-    <button class="menu-button--close">close</button>
+    <button class="menu-button--close">Cerra Menú</button>
   </nav>
 </header>
 
@@ -78,9 +78,8 @@ import Menu from "./icons/Menu.astro"
     width: 100%;
     height: 100vh;
     padding: 16px;
-    background-color: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    transition: transform 1s;
+    background-color: white;
+    transition: transform 0.3s;
   }
 
   nav.open{
@@ -108,15 +107,12 @@ import Menu from "./icons/Menu.astro"
     -webkit-text-fill-color: transparent;
   }
 
-  /* button{
-    display: none;
-  } */
+  button{
+    background-color: transparent;
+    border: none;
+  }
 
   @media screen and (min-width: 768px) {
-    header{
-
-    }
-
     nav.menu--mobile,
     .menu-button--open{
       display: none;
