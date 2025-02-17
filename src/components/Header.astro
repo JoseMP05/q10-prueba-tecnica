@@ -45,7 +45,6 @@ import Menu from "./icons/Menu.astro"
     const mobileMenu = document.querySelector('.menu--mobile');
 
     document.addEventListener('click', (event) => {
-      console.log(event.target)
       if (event.target.closest(".menu-button--open"))
         mobileMenu.classList.toggle('open');
       else if (event.target.closest(".menu-button--close"))
