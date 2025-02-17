@@ -1,0 +1,53 @@
+---
+const {title, description, items=[], price=null } = Astro.props
+---
+<article>
+  <header>
+    <div>
+      <h3>{title}</h3>
+      {price && <span>{price}</span>}
+    </div>
+    <p>{description}</p>
+  </header>
+  <ul>
+    {items.map(item => {
+      return <li>{item}</li> 
+    })}
+  </ul>
+</article>
+
+<style>
+  article{
+    padding: 24px;
+    color: white;
+    background-color: var(--alternative);
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 8px;
+  }
+
+  header{
+    margin-bottom: 8px;
+  }
+
+  div{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  h3{
+    font-size: 1.5rem;
+    margin-block: 0 12px;
+  }
+
+  p{
+    margin-top: 0;
+    color: rgba(255,255,255,0.7);
+  }
+
+  ul{
+    list-style-image: url("/bullet.svg");
+    line-height: 150%;
+  }
+</style>
+
+

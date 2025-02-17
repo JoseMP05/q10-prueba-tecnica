@@ -1,0 +1,92 @@
+---
+import PricingCard from "@components/PricingCard.astro"
+
+const pricing = [
+  {
+    title: 'Refiere',
+    description: 'Gana comisiones refiriendo a Q10. ¡Nosotros nos encargamos del resto!',
+    items: ["Gana comisiones refiriendo a Q10. ¡Nosotros nos encargamos del resto!"]
+  },
+  {
+    title: 'Revende',
+    price: "99 USD / Año",
+    description: 'Aumenta tus ingresos y adquiere descuentos, beneficios e incentivos exclusivos',
+    items: [
+      "30% de descuento en la plataforma Q10 para ventas nuevas y renovaciones.",
+      "Descuentos adicionales por volumen de facturación.",
+      "Acompañamiento y capacitación personalizados.",
+      "Administración de la facturación del cliente final."
+    ]
+  }
+]
+---
+<section class="pricing">
+  <div class="pricing__container">
+
+    <h2>Únete a Q10 de la forma que mejor se adapte a ti.</h2>
+    <div class="pricing__cards">
+      {pricing.map(priceItem => {
+        const { title, price, description, items } = priceItem
+        return <PricingCard {title} {price} {description} {items} />
+      })}
+    </div>
+  </div>
+</section>
+
+<style>
+  section{
+    display: flex;
+    justify-content: center;
+    margin-inline: 16px;
+    margin-bottom: 48px;
+  }
+
+  h2{
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .pricing__container{
+
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .pricing__cards{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: space-between;
+  }
+
+  @media screen and (min-width: 768px) {
+    section{
+      margin-inline: 0;
+      margin-bottom: 48px;
+    }
+
+    .pricing__container{
+      /* display: flex;
+      align-items: center; */
+      max-width: calc(var(--max-width-sections) - 48px);
+      width: 100%;
+      margin-inline: 24px;
+    }
+
+    .pricing__cards{
+      flex-direction: row;
+    }
+  }
+
+  @media screen and (min-width: 991px) {
+    .pricing__container{
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    h2{
+      text-align: start;
+    }
+  }
+</style>
