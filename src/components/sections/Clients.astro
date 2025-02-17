@@ -1,0 +1,63 @@
+---
+  import formarte from "@assets/img/clients/formarte.webp"
+  import blendex from "@assets/img/clients/blendex.webp"
+  import bnc from "@assets/img/clients/bnc.webp"
+  import cafam from "@assets/img/clients/cafam.webp"
+  import cruzRoja from "@assets/img/clients/cruz-roja.webp"
+  import insite from "@assets/img/clients/insite.webp"
+  import instRN from "@assets/img/clients/instRN.webp"
+  import instSI from "@assets/img/clients/instSI.webp"
+  import ist from "@assets/img/clients/ist.webp"
+
+  const imagesObject = [
+    { src: formarte.src, alt: "Formarte" },
+    { src: blendex.src, alt: "Blendex" },
+    { src: bnc.src, alt: "BNC" },
+    { src: cafam.src, alt: "Cafam" },
+    { src: cruzRoja.src, alt: "Cruz roja de Colombia" },
+    { src: insite.src, alt: "Insite" },
+    { src: instRN.src, alt: "Instituto Richard Nixon" },
+    { src: instSI.src, alt: "Instituto Superior de Ingeniería" },
+    { src: ist.src, alt: "Instituto Santo Tomas" }
+  ]
+    
+import Scroller from "@components/Scroller.astro"
+---
+
+<section class="clients">
+  <div class="clients__container">
+    <h2>Unete a otros que han confiado en nosotros</h2>
+    <Scroller images={imagesObject}>
+  </div>
+</section>
+
+<style>
+  section{
+    display: flex;
+    justify-content: center;
+    margin-inline: 16px;
+    margin-bottom: 48px;
+  }
+  
+  .clients__container{
+    width: 100%;
+    max-width: 500px;
+  } 
+
+  @media screen and (min-width: 768px) {
+    section{
+      margin-inline: 24px;
+      margin-bottom: 128px;
+    }
+  
+    .clients__container{
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      gap: 48px;
+      max-width: calc(var(--max-width-sections) - 48px);
+      width: 100%;
+      margin-inline: 24px;
+    }
+  }
+</style>

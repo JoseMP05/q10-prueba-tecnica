@@ -1,0 +1,76 @@
+---
+const { images = [], ...rest } = Astro.props
+---
+
+<div class="scroller" {...rest}>
+  <!-- printing to test -->
+  <div class="scroller__inner">
+    {images.map(img =>{
+      return <img src={img.src} alt={img.alt}
+    />
+    })}
+  </div>
+</div>
+
+<style>
+  .scroller__inner {
+    padding-block: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .scroller {
+    overflow: hidden;
+    -webkit-mask: linear-gradient(
+      90deg,
+      transparent,
+      white 20%,
+      white 80%,
+      transparent
+    );
+    mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+  }
+
+  .scroller .scroller__inner {
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: scroll 20s forwards linear infinite;
+  }
+
+
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
+  }
+    
+  img{
+    height: 80px;
+    filter: saturate(0);
+  }  
+</style>
+
+<script>
+  const scrollers = document.querySelectorAll(".scroller");
+
+// If a user hasn't opted in for recuded motion, then we add the animation
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  addAnimation();
+}
+
+function addAnimation() {
+  scrollers.forEach((scroller) => {
+
+    const scrollerInner = scroller.querySelector(".scroller__inner");
+    const scrollerContent = Array.from(scrollerInner.children);
+
+    scrollerContent.forEach((item) => {
+      const duplicatedItem = item.cloneNode(true);
+      duplicatedItem.setAttribute("aria-hidden", true);
+      scrollerInner.appendChild(duplicatedItem);
+    });
+  });
+}
+
+</script>
